@@ -1,7 +1,7 @@
 services:
-  postgres:
+  player-db:
     image: postgres:16-alpine
-    container_name: inventory-postgres
+    container_name: player-db
     environment:
       POSTGRES_DB: player_service
       POSTGRES_USER: player_service
@@ -9,9 +9,26 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - player-db-data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U player_service"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  inventory-db:
+    image: postgres:16-alpine
+    container_name: inventory-db
+    environment:
+      POSTGRES_DB: inventory_store_service
+      POSTGRES_USER: inventory_store_service
+      POSTGRES_PASSWORD: inventory_store_service
+    ports:
+      - "5433:5432"
+    volumes:
+      - inventory-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U inventory_store_service"]
       interval: 5s
       timeout: 3s
       retries: 5
@@ -28,4 +45,5 @@ services:
       retries: 5
 
 volumes:
-  postgres-data:
+  player-db-data:
+  inventory-db-data:
