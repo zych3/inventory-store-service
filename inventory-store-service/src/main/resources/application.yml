@@ -38,3 +38,6 @@ management:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+player-service:
+  base-url: http://localhost:8081
