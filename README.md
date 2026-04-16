@@ -2,7 +2,7 @@
 
 A two-service backend system for managing player inventories, virtual currency, and in-game store purchases. 
 
-**Stack:** Java 21 · Spring Boot 3.5 · PostgreSQL · Redis · SQS (LocalStack) · GitHub Actions
+**Stack:** Java 21 | Spring Boot 3.5 | PostgreSQL | GitHub Actions
 
 ---
 

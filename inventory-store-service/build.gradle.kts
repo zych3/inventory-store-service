@@ -24,4 +24,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql")
+    testImplementation("com.jayway.jsonpath:json-path:2.9.0")
+    testImplementation("org.wiremock:wiremock-standalone:3.10.0")
 }
